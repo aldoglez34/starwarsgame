@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- link al css file -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <!-- link a bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- link to jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- link al javascript file -->
+    <script src="./assets/javascript/game.js"></script>
+
+    <div class="container">
+        <!-- header -->
+        <div class="row headerStyle text-center ">
+            <div class="col-12">
+                <h1 class="display-4">Star Wars Game</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- pick your fighter container -->
+    <div class="container" id="myFighterContainer">
+        <div class="row rowStyle bg-dark">
+            <div class="col-12">
+                <h3 class="text-center">-------------------------------------</h3>
+            </div>
+        </div>
+        <div class="row rowStyle">
+            <div class="col-5 align-self-center">
+                <h4 class="text-center">Choose character:</h4>
+            </div>
+            <div class="col-7 d-flex justify-content-center">
+                <img class="imgStyleFighter fighter" src="./assets/images/char_anakinskywalker.png"
+                    Value_Name="Anakin Skywalker" Value_HP="270" Value_WA="35" Value_SA="75">
+                <img class="imgStyleFighter fighter" src="./assets/images/char_obiwankenobi.png"
+                    Value_Name="Obi-Wan Kenobi" Value_HP="280" Value_WA="45" Value_SA="80">
+                <img class="imgStyleFighter fighter" src="./assets/images/char_hansolo.png" Value_Name="Han Solo"
+                    Value_HP="225" Value_WA="50" Value_SA="70">
+                <img class="imgStyleFighter fighter" src="./assets/images/char_lukeskywalker.png"
+                    Value_Name="Luke Skywalker" Value_HP="290" Value_WA="45" Value_SA="80">
+            </div>
+        </div>
+    </div>
+
+    <!-- pick your enemy container -->
+    <div class="container" id="myEnemyContainer">
+        <div class="row rowStyle bg-dark">
+            <div class="col-12">
+                <h3 class="text-center">-------------------------------------</h3>
+            </div>
+        </div>
+        <div class="row rowStyle">
+            <div class="col-5 align-self-center">
+                <h4 class="text-center">Choose first enemy:</h4>
+            </div>
+            <div class="col-7 d-flex justify-content-center">
+                <img class="imgStyleEnemy enemy" src="./assets/images/char_darthmaul.png" Value_Name="Darth Maul"
+                    Value_HP="260" Value_WA="30" Value_SA="70">
+                <img class="imgStyleEnemy enemy" src="./assets/images/char_generalgrievous.png"
+                    Value_Name="General Grievous" Value_HP="240" Value_WA="35" Value_SA="75">
+                <img class="imgStyleEnemy enemy" src="./assets/images/char_kyloren.png" Value_Name="Kylo Ren"
+                    Value_HP="280" Value_WA="30" Value_SA="70">
+                <img class="imgStyleEnemy enemy" src="./assets/images/char_darthvader.png" Value_Name="Darth Vader"
+                    Value_HP="300" Value_WA="40" Value_SA="80">
+            </div>
+        </div>
+    </div>
+
+    <!-- battle containers -->
+    <div class="container" id="battleContainer">
+
+        <div class="row rowStyle bg-dark">
+            <div class="col-12">
+                <h3 class="text-center">-------------------------------------</h3>
+            </div>
+        </div>
+
+        <div class="row rowStyle bg-dark">
+
+            <div class="col-5 bg-success">
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="d-flex justify-content-center">
+                            <img id="battleFighterIMG" src="">
+                        </div>
+                        <h2 class="text-center" id="yourFighterName"></h2>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h2 class="text-warning" id="myfighterhp">Health Points: </h2>
+                        <h2 class="text-warning" id="myfighterwa">Weak Attack: </h2>
+                        <h2 class="text-warning" id="myfightersa">Strong Attack: </h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 display-4 align-self-center">
+                <h1 class="text-center display-1">VS</h1>
+            </div>
+
+            <div class="col-5 bg-danger">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="d-flex justify-content-center">
+                            <img id="battleEnemyIMG" src="">
+                        </div>
+                        <h2 class="text-center" id="yourEnemyName"></h2>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h2 class="text-warning" id="myenemyhp">Health Points: </h2>
+                        <h2 class="text-warning" id="myenemywa">Weak Attack: </h2>
+                        <h2 class="text-warning" id="myenemysa">Strong Attack: </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row rowStyle bg-dark" style="height: 150px;">
+            <div class="col-5 align-self-center" id="fighterBattleAlerts" style="margin-top: 10px;">
+            </div>
+            <div class="col-2 d-flex justify-content-center align-self-center">
+                <button type="button" class="btn btn-warning btn-lg" id="interactBttn">Interact</button>
+            </div>
+            <div class="col-5 align-self-center" id="enemyBattleAlerts" style="margin-top: 10px;">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- winner container -->
+    <div class="container" id="winnerContainer" style="height: 700px;">
+        <div class="row rowStyle" id="winnerrow1">
+            <div class="col-12" style="margin-top: 65px;">
+                <div class="display-1 text-center" id="winloseresult"></div>
+            </div>
+        </div>
+        <div class="row rowStyle" id="winnerrow2" style="margin-top: 30px;">
+            <div class="col-12 d-flex justify-content-center">
+                <img src="" id="winlosegif">
+            </div>
+        </div>
+        <div class="row rowStyle" id="winnerrow3" style="margin-top: 30px;">
+            <div class="col-12">
+                <div class="display-4 text-center" id="winloseresult2"></div>
+            </div>
+        </div>
+        <div class="row rowStyle" id="winnerrow4" style="margin-top: 70px;">
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" id="newgamebutton">New Game</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
