@@ -21,6 +21,7 @@ $(document).ready(function () {
     var myFighter = new fighterClass("", "", 0, 0, 0, false);
     var myEnemy = new fighterClass("", "", 0, 0, 0, false);
 
+    // choose your fighter
     $(".fighter").click(function () {
 
         myFighter.name = $(this).attr("Value_Name");
@@ -30,15 +31,15 @@ $(document).ready(function () {
         myFighter.strongAttack = $(this).attr("Value_SA");
         myFighter.isAlive = true;
 
-        $(".fighter").css("opacity", .4);
         $("#myFighterContainer").css("pointer-events", "none");
-
-        $(this).css("border", "5px solid greenyellow");
+        $(".fighter").addClass("blockedFighters");
+        $(this).addClass("selectedFighter");
 
         $("#myEnemyContainer").show(500);
 
     })
 
+    // choose an enemy
     $(".enemy").click(function () {
 
         myEnemy.name = $(this).attr("Value_Name");
@@ -48,17 +49,17 @@ $(document).ready(function () {
         myEnemy.strongAttack = $(this).attr("Value_SA");
         myEnemy.isAlive = true;
 
-        $(".enemy").css("opacity", .4);
         $("#myEnemyContainer").css("pointer-events", "none");
+        $(".enemy").addClass("blockedFighters");
+        $(this).addClass("selectedEnemy");
 
         $("#battleContainer").show(500);
-
-        $(this).css("border", "5px solid red");
 
         setBattleDiv();
 
     })
 
+    // set the battle div
     function setBattleDiv() {
 
         //set my fighter stats
@@ -83,6 +84,7 @@ $(document).ready(function () {
 
     }
 
+    // attack
     $("#interactBttn").click(function () {
 
         // my turn
@@ -169,28 +171,22 @@ $(document).ready(function () {
         $("#winnerrow4").addClass(colorclass);
     }
 
+    // new game
     $("#newgamebutton").click(function () {
+
         $("#winnerContainer").hide();
         $("#myFighterContainer").show(500);
+
         $("#myFighterContainer").css("pointer-events", "auto");
-        $(".fighter").css("opacity", 1);
-
-        $(".fighter").css("border", "0");
-        $(".fighter").mouseenter(function () {
-            $(this).css("border", "5px solid greenyellow");
-        }).mouseleave(function () {
-            $(this).css("border", "0px");
-        });
-
         $("#myEnemyContainer").css("pointer-events", "auto");
-        $(".enemy").css("opacity", 1);
 
-        $(".enemy").css("border", "0");
-        $(".enemy").mouseenter(function () {
-            $(this).css("border", "5px solid red");
-        }).mouseleave(function () {
-            $(this).css("border", "0px");
-        });
+        $(".fighter").removeClass("blockedFighters");
+        $(".fighter").removeClass("selectedFighter");
+        $(".enemy").removeClass("blockedFighters");
+        $(".enemy").removeClass("selectedEnemy");
+
+        $(".fighter").addClass("imgStyleFighter");
+        $(".enemy").addClass("imgStyleEnemy");
 
     })
 

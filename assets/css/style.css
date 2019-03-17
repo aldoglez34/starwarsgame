@@ -18,10 +18,15 @@ body {
     margin: 0 15px;
     height: 110px;
     width: 110px;
-    /* border: 5px solid rgb(0, 59, 0); */
+    opacity: 1;
+    border: 0;
 }
 
 .imgStyleFighter:hover {
+    border: 5px solid greenyellow;
+}
+
+.selectedFighter {
     border: 5px solid greenyellow;
 }
 
@@ -29,9 +34,29 @@ body {
     margin: 0 15px;
     height: 110px;
     width: 110px;
-    /* border: 5px solid rgb(66, 1, 1); */
+    opacity: 1;
+    border: 0;
+}
+
+.selectedEnemy {
+    border: 5px solid red;
 }
 
 .imgStyleEnemy:hover {
     border: 5px solid red;
+}
+
+.blockedFighters {
+    opacity: .4;
+}
+
+@media screen and (max-width: 768px) {
+    .imgStyleFighter {
+        height: 5px;
+        width: 5px;
+    }
+    .imgStyleEnemy {
+        height: 5px;
+        width: 5px;
+    }
 }
